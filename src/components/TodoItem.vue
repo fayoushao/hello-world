@@ -21,4 +21,3 @@ export default {
 <style lang="less">
 
 </style>
-

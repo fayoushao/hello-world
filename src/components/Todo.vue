@@ -21,7 +21,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import TodoItem from './TodoItem.vue';
 
 export default {
@@ -42,15 +41,12 @@ export default {
         name: this.inputVal
       }
 
-      axios.post('http://localhost:3000/todos', obj)
-        .then(response => {
-          console.log('新增成功');
-          let res = response.data;
-          console.log(res);
+      this.$http.post('/todos', obj)
+        .then(res => {
           this.todos.push(res);
         })
         .catch(error => {
-          alert('新增失败');
+          alert('新增失败', error.message);
         })
       // this.todos.push({
       //   name: this.inputVal,
@@ -65,23 +61,25 @@ export default {
      */
     delTodo (index, id) {
       // this.todos.splice(index, 1);
-      axios.delete(`http://localhost:3000/todos/${id}`)
-        .then(response => {
-          console.log(response.data);
+      this.$http.delete(`/todos/${id}`)
+        .then(res => {
           this.todos.splice(index, 1);
         })
         .catch(error => {
-          alert('删除失败');
+          alert('删除失败', error.message);
         })
     }
   },
 
   created () {
-    axios.get('http://localhost:3000/todos')
-      .then(response => {
-        let res = response.data;
+    this.$http.get('/todos')
+      .then(res => {
         console.log(res);
         this.todos = res;
+      })
+      .catch(error => {
+        console.log(error.message);
+        alert('网络异常，请稍后重试');
       })
   }
 }
