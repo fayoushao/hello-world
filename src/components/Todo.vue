@@ -49,6 +49,7 @@ export default {
     axios.get('http://localhost:8080/api/todos.json')
       .then(response => {
         let res = response.data;
+        console.log(res);
         if (res.code === 0) {
           this.todos = res.data;
         } else {

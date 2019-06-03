@@ -42,4 +42,19 @@ todo.json
 
 ### 1. 自己写json文件
 
+> 假数据应该放到 public 文件夹下
+
 todos.json
+
+### 2. mockjs
+
+> 一款能够创建假数据，并且这个假数据还有些真实的工具。它主要是拦截我们的ajax请求来实现。
+
+1. 安装
+```sh
+npm install --save mockjs
+```
+2. 去编写 mockjs 的拦截代码 src/mockdata/index.js
+3. 在 main.js 中，引入第2步中的文件
+
+
