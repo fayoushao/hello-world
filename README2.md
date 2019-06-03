@@ -57,4 +57,19 @@ npm install --save mockjs
 2. 去编写 mockjs 的拦截代码 src/mockdata/index.js
 3. 在 main.js 中，引入第2步中的文件
 
+### 3. json-server
+
+> 也是一套假数据的工具，但是能帮助我们实现数据的操作。
+
+
+1. 全局安装
+```sh
+npm install -g json-server
+```
+2. 写一个json
+3. 启动json-server
+```sh
+json-server db.json
+```
+
 
